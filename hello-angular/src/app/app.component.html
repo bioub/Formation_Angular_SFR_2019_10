@@ -1,0 +1,16 @@
+<app-hello *ngFor="let prenom of prenoms"
+            [prenom]="prenom"></app-hello>
+
+
+<app-counter [ngClass]="{ important: true }"></app-counter>
+
+<app-contact-form></app-contact-form>
+
+<app-select [items]="prenoms"
+[selection]="selectedPrenom"
+(selectionChange)="selectedPrenom = $event"></app-select>
+
+<app-select [items]="prenoms"
+[(selection)]="selectedPrenom"></app-select>
+
+<app-hello [prenom]="selectedPrenom"></app-hello>

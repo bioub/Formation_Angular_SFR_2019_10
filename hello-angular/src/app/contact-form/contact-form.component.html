@@ -1,0 +1,17 @@
+<form (submit)="add($event)">
+  <p>
+    <label>Name</label>
+    <input type="text" name="name" [value]="contact.name" (input)="contact.name = $event.target.value">
+  </p>
+  <p>
+    <label>Email</label>
+    <input type="email" name="email" [value]="contact.email" (input)="contact.email = $event.target.value">
+  </p>
+  <p>
+    <label>Phone</label>
+    <input type="tel" name="phone" [value]="contact.phone" (input)="contact.phone = $event.target.value">
+  </p>
+  <p>
+    <button>Add</button>
+  </p>
+</form>
