@@ -12,7 +12,7 @@ console.log('FIN');
 // |
 // |                           lg      lg    lg      lg
 // |st - st - st - st - lg ... cbB ... cbA - cbD ... cbC
-// +----------------------------------------------------> temps
+// +---------------------------3ms-------------------------> temps
 //                      FIN    B       A     D       C
 
 // file d'attente (0ms) : cbB

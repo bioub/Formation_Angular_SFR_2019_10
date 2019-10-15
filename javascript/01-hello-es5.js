@@ -1,8 +1,12 @@
 // Module IIFE
 // Immediately Invoked Function Expression
-// (function() {
+(function() {
   var prenoms = ['Jean', 'Eric'];
 
+  /**
+   *
+   * @param {string} prenom
+   */
   function bonjour(prenom) {
     return 'Hello ' + prenom;
   }
@@ -11,4 +15,4 @@
     var prenom = prenoms[i];
     console.log(bonjour(prenom));
   }
-// }());
+}());
