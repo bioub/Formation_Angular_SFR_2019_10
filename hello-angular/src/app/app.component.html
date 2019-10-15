@@ -15,3 +15,9 @@
 <!-- BANANA IN A BOX [()] -->
 
 <app-hello [prenom]="selectedPrenom"></app-hello>
+
+
+<button (click)="showClock = !showClock">Toggle Clock</button>
+
+<app-clock *ngIf="showClock"></app-clock>
+<app-clock [delay]="3 * 1000"></app-clock>
