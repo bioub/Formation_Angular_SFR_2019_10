@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "todolist-angular"
+		},
+		{
+			"path": "addressbook-angular"
 		}
 	],
 	"settings": {}
