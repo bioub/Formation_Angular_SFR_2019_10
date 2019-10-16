@@ -7,7 +7,7 @@ import { UsersAddComponent } from './users-add/users-add.component';
 import { UsersDetailsComponent } from './users-details/users-details.component';
 import { UsersComponent } from './users/users.component';
 import { SharedModule } from '../shared/shared.module';
-import { MatListModule, MatButtonModule } from '@angular/material';
+import { MatListModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
 
 
 @NgModule({
@@ -16,6 +16,9 @@ import { MatListModule, MatButtonModule } from '@angular/material';
     SharedModule,
     MatListModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
     UsersRoutingModule
   ]
 })

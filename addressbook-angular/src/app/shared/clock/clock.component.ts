@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
@@ -8,8 +8,31 @@ import { Component, OnInit } from '@angular/core';
 export class ClockComponent implements OnInit {
 
   now = new Date();
+  @Input() delay = 1000;
+
+
+  private intervalId;
+
+  // constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.intervalId = setInterval(() => {
+      this.now = new Date();
+      // this.cd.detectChanges();
+    }, this.delay);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.delay.currentValue !== this.delay) {
+      clearInterval(this.intervalId);
+      this.intervalId = setInterval(() => {
+        this.now = new Date();
+      }, this.delay);
+    }
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
   }
 
 }
