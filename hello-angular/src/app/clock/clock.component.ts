@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
@@ -14,11 +14,12 @@ export class ClockComponent implements OnInit, OnDestroy, OnChanges {
 
   private intervalId;
 
-  constructor() { }
+  // constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.intervalId = setInterval(() => {
       this.now = new Date();
+      // this.cd.detectChanges();
     }, this.delay);
   }
 

@@ -21,6 +21,6 @@ import { ClockComponent } from './clock/clock.component';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

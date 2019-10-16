@@ -6,12 +6,13 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UsersAddComponent } from './users-add/users-add.component';
 import { UsersDetailsComponent } from './users-details/users-details.component';
 import { UsersComponent } from './users/users.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [UsersListComponent, UsersAddComponent, UsersDetailsComponent, UsersComponent],
   imports: [
-    CommonModule,
+    SharedModule,
     UsersRoutingModule
   ]
 })
