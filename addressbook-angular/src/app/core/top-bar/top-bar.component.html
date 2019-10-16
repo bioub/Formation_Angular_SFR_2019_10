@@ -1,13 +1,14 @@
-<nav>
+<mat-toolbar color="primary">
   <a
+    mat-icon-button
     routerLink="/"
-    routerLinkActive="current"
+    routerLinkActive="mat-flat-button"
     [routerLinkActiveOptions]="{ exact: true }"
   >
-    Home
+    <mat-icon>home</mat-icon>
   </a>
 
-  <a [routerLink]="['users']" routerLinkActive="current">
+  <a mat-button [routerLink]="['users']" routerLinkActive="mat-flat-button">
     Users
   </a>
-</nav>
+</mat-toolbar>

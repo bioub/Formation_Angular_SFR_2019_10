@@ -8,6 +8,8 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { TopBarComponent } from './core/top-bar/top-bar.component';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,10 @@ import { UsersModule } from './users/users.module';
     SharedModule,
     UsersModule,
     AppRoutingModule, // toujours en dernier si route **
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

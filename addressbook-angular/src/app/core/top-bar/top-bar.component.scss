@@ -1,9 +1,5 @@
-nav {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.current {
-  background-color: lightblue;
-  font-weight: bold;
+mat-toolbar {
+  [mat-button] {
+    margin-left: 1em;
+  }
 }
