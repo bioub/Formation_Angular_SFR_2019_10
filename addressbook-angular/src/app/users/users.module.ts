@@ -8,10 +8,39 @@ import { UsersDetailsComponent } from './users-details/users-details.component';
 import { UsersComponent } from './users/users.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatListModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
+import { UserService } from './user.service';
+import { HttpClient } from '@angular/common/http';
 
+// export function userServiceFactory(httpClient: HttpClient) {
+//   return new UserService(httpClient, '/users');
+// }
 
 @NgModule({
   declarations: [UsersListComponent, UsersAddComponent, UsersDetailsComponent, UsersComponent],
+  providers: [
+    // UserService
+    // équivalent à
+    // {
+    //   provide: UserService,
+    //   useClass: UserService, // new UserService(), new UserService(httpClient)
+    // }
+    // {
+    //   provide: UserService,
+    //   useFactory: userServiceFactory
+    // }
+    // {
+    //   provide: UserService,
+    //   useValue: {
+    //     findAll() {
+
+    //     }
+    //   }
+    // }
+    // {
+    //   provide: UserService,
+    //   useExisting: UserTestingService,
+    // }
+  ],
   imports: [
     SharedModule,
     MatListModule,

@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "absolute": "0.0.1"
+    "absolute": "0.0.1",
+    "rxjs": "^6.5.3"
   }
 }

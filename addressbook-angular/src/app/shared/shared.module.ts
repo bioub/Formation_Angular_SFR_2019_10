@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SelectComponent } from './select/select.component';
 import { ClockComponent } from './clock/clock.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,7 +10,8 @@ import { ClockComponent } from './clock/clock.component';
   declarations: [SelectComponent, ClockComponent],
   imports: [
     // que des modules
-    CommonModule
+    CommonModule,
+    // RouterModule,
   ],
   exports: [
     // components, modules, pipes, directives

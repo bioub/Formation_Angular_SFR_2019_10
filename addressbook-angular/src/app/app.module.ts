@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/mater
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    HttpClientModule,
     BrowserAnimationsModule,
   ],
   providers: [],
