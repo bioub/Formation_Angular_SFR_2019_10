@@ -5,7 +5,15 @@ export class AppPage {
     return browser.get(browser.baseUrl) as Promise<any>;
   }
 
-  getTitleText() {
-    return element(by.css('todo-root .content span')).getText() as Promise<string>;
+  fillFieldAdd(text) {
+    element(by.css('todo-form input')).sendKeys(text);
+  }
+
+  submitForm() {
+    element(by.css('todo-form button')).click();
+  }
+
+  getFirstTodoText() {
+    return element(by.css('todo-item:first-of-type span')).getText()
   }
 }

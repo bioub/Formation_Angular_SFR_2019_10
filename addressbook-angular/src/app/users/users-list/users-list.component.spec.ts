@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsersListComponent } from './users-list.component';
-import { UserService } from '../user.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('UsersListComponent', () => {
   let component: UsersListComponent;
@@ -10,6 +10,9 @@ describe('UsersListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ UsersListComponent ],
+      imports: [
+        HttpClientTestingModule,
+      ]
       // providers: [
       //   {
       //     provide: UserService,
@@ -24,6 +27,9 @@ describe('UsersListComponent', () => {
     .compileComponents();
   }));
 
+  let httpTestingController: HttpTestingController;
+  beforeEach(() => httpTestingController = TestBed.get(HttpTestingController));
+
   beforeEach(() => {
     fixture = TestBed.createComponent(UsersListComponent);
     component = fixture.componentInstance;
@@ -33,4 +39,16 @@ describe('UsersListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show result from mock backend', () => {
+    httpTestingController.expectOne('/users').flush([{id: 123, name: 'Toto'}]);
+
+    fixture.detectChanges();
+
+    const firstLink = fixture.nativeElement.querySelector('mat-nav-list a:first-child');
+
+    expect(firstLink.textContent).toContain('Toto');
+
+    httpTestingController.verify();
+  })
 });

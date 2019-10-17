@@ -7,10 +7,11 @@ import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { TopBarComponent } from './core/top-bar/top-bar.component';
 import { SharedModule } from './shared/shared.module';
-import { UsersModule } from './users/users.module';
+// import { UsersModule } from './users/users.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiBaseUrlInterceptor } from './core/api-base-url.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     SharedModule,
-    UsersModule,
+    // UsersModule,
     AppRoutingModule, // toujours en dernier si route **
     MatToolbarModule,
     // MatButtonModule,
@@ -30,7 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ApiBaseUrlInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

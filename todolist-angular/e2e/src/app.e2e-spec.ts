@@ -8,9 +8,12 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should add a todo', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('todolist-angular app is running!');
+    page.fillFieldAdd('Prendre le train');
+    page.submitForm();
+
+    expect(page.getFirstTodoText()).toContain('Prendre le train');
   });
 
   afterEach(async () => {
