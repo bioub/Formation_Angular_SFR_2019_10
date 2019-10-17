@@ -1,4 +1,6 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { clock } from './clock-observable';
 
 @Component({
   selector: 'app-clock',
@@ -7,32 +9,17 @@ import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 })
 export class ClockComponent implements OnInit {
 
-  now = new Date();
+  now$: Observable<Date>;
   @Input() delay = 1000;
 
-
-  private intervalId;
-
-  // constructor(private cd: ChangeDetectorRef) { }
-
   ngOnInit() {
-    this.intervalId = setInterval(() => {
-      this.now = new Date();
-      // this.cd.detectChanges();
-    }, this.delay);
+    this.now$ = clock(this.delay);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.delay.currentValue !== this.delay) {
-      clearInterval(this.intervalId);
-      this.intervalId = setInterval(() => {
-        this.now = new Date();
-      }, this.delay);
+    if (changes.delay.previousValue !== this.delay) {
+      this.now$ = clock(this.delay);
     }
-  }
-
-  ngOnDestroy() {
-    clearInterval(this.intervalId);
   }
 
 }

@@ -4,5 +4,7 @@
   <router-outlet></router-outlet>
 
   <hr>
-  <app-clock></app-clock>
+  <app-clock [delay]="delay"></app-clock>
+
+  <button (click)="delay = delay + 100">+</button>
 </div>

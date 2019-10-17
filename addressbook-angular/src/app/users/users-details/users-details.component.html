@@ -1,14 +1,21 @@
-<p>
-  <b>Name : </b>
-  Jean Dupont
-</p>
+<ng-container *ngIf="user$ | async as user">
+  <p>
+    <b>Name : </b>
+    {{ user.name }}
+  </p>
 
-<p>
-  <b>Email : </b>
-  jean.dupont@gmail.com
-</p>
+  <p>
+    <b>Email : </b>
+    {{ user.email }}
+  </p>
 
-<p>
-  <b>Phone : </b>
-  06 00 00 00 00
-</p>
+  <p>
+    <b>Phone : </b>
+    {{ user.phone }}
+  </p>
+
+  <p>
+    <b>City : </b>
+    {{ user.address?.city }}
+  </p>
+</ng-container>

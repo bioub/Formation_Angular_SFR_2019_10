@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
+import { delay } from "rxjs/operators";
 
 const url = 'https://jsonplaceholder.typicode.com/users';
 
@@ -16,7 +17,10 @@ export class UserService {
   }
 
   getById(id: string | number) {
-    return this.httpClient.get<User>(url + '/' + id);
+    return this.httpClient.get<User>(url + '/' + id)
+      .pipe(
+        delay(id === '3' ? 3000 : 0)
+      );
   }
 
   create(data: User) {
