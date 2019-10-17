@@ -7,6 +7,7 @@ import { CounterComponent } from './counter/counter.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SelectComponent } from './select/select.component';
 import { ClockComponent } from './clock/clock.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ClockComponent } from './clock/clock.component';
     ClockComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule
   ],
   providers: [],

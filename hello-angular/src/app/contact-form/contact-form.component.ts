@@ -18,7 +18,7 @@ export class ContactFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  add(event: Event) {
-    event.preventDefault();
+  add() {
+    
   }
 }

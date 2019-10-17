@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MatListModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
 import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // export function userServiceFactory(httpClient: HttpClient) {
 //   return new UserService(httpClient, '/users');
@@ -32,7 +33,6 @@ import { HttpClient } from '@angular/common/http';
     //   provide: UserService,
     //   useValue: {
     //     findAll() {
-
     //     }
     //   }
     // }
@@ -43,8 +43,9 @@ import { HttpClient } from '@angular/common/http';
   ],
   imports: [
     SharedModule,
+    ReactiveFormsModule,
     MatListModule,
-    MatButtonModule,
+    // MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,

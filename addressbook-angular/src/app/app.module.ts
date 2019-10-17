@@ -25,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     UsersModule,
     AppRoutingModule, // toujours en dernier si route **
     MatToolbarModule,
-    MatButtonModule,
+    // MatButtonModule,
     MatIconModule,
     HttpClientModule,
     BrowserAnimationsModule,

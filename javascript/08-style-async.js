@@ -31,6 +31,7 @@ fs.promises.readFile(".editorconfig", { encoding: "UTF-8" })
   .then(() => console.log('Copy done'))
   .catch((err) => console.log(err.message));
 
+// ES8 / ES2017
 async function copyEditorConfig() {
   try {
     const content = await fs.promises.readFile(".editorconfig", { encoding: "UTF-8" });
@@ -51,7 +52,7 @@ async function copyEditorConfigBis() {
 
 copyEditorConfigBis().catch(err => console.log(err.message));
 
-// Top Level Await
+// Top Level Await (ESNext -> ES2020/2021 ???)
 // try {
 //   const content = await fs.promises.readFile(".editorconfig", { encoding: "UTF-8" });
 //   await fs.promises.writeFile(".editorconfig.copy", content);

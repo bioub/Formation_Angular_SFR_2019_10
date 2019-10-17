@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SelectComponent } from './select/select.component';
 import { ClockComponent } from './clock/clock.component';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material';
 
 
 
@@ -16,7 +17,7 @@ import { RouterModule } from '@angular/router';
   exports: [
     // components, modules, pipes, directives
     ClockComponent,
-
+    MatButtonModule,
     CommonModule, // export NgIf, NgForOf, DatePipe...
   ]
 })

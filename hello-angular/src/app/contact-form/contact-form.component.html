@@ -1,15 +1,18 @@
-<form (submit)="add($event)">
+<form (submit)="add()" #ngForm="ngForm">
   <p>
     <label>Name</label>
-    <input type="text" name="name" [value]="contact.name" (input)="contact.name = $event.target.value">
+    <input #inputName #ngModelName="ngModel" type="text" name="name" [(ngModel)]="contact.name" required>
+    <span *ngIf="ngModelName.invalid && ngModelName.errors['required'] && ngModelName.touched">Name is required</span>
+    {{ngModelName.errors | json}} <!-- text -->
+    {{ngForm.submitted}}
   </p>
   <p>
     <label>Email</label>
-    <input type="email" name="email" [value]="contact.email" (input)="contact.email = $event.target.value">
+    <input type="email" name="email" [(ngModel)]="contact.email" email>
   </p>
   <p>
     <label>Phone</label>
-    <input type="tel" name="phone" [value]="contact.phone" (input)="contact.phone = $event.target.value">
+    <input type="tel" name="phone" [(ngModel)]="contact.phone">
   </p>
   <p>
     <button>Add</button>

@@ -14,19 +14,41 @@
 // Stage 1 TC39
 
 const { Observable } = require("rxjs");
+const { map, take } = require('rxjs/operators');
 
 function interval(delayMs) {
   return new Observable(observer => {
-    setInterval(() => {
+    const id = setInterval(() => {
       observer.next(delayMs);
     }, delayMs);
+
+    setTimeout(() => {
+      observer.error(new Error('1400'));
+    }, 1400);
+
+    return () => {
+      console.log('unsubscribe');
+      clearInterval(id);
+    };
   });
 }
 
 const interval$ = interval(1000);
 
-interval$.subscribe(delayMs => console.log(`1 - ${delayMs}ms`));
+// ----(1000)----(1000)----(1000)----(1000)----(1000)----(1000)
+// map((delayMs) => delayMs / 1000)
+// ----(  1 )----(  1 )----(  1 )----(  1 )----(  1 )----(  1 )
+// take(3)
+// ----(  1 )----(  1 )----(  1 )|
 
-setTimeout(() => {
-  interval$.subscribe(delayMs => console.log(`2 - ${delayMs}ms`));
-}, 500);
+const subscription = interval$
+  .pipe(
+    map((delayMs) => delayMs / 1000),
+   // take(3),
+  )
+  .subscribe(delayS => console.log(`1 - ${delayS}s`), (err) => console.log(err.message), () => console.log('Complete'));
+
+// setTimeout(() => {
+//   interval$.subscribe(delayMs => console.log(`2 - ${delayMs}ms`));
+//   subscription.unsubscribe();
+// }, 500);
